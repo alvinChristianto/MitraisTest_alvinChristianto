@@ -18,6 +18,14 @@
 			</div>
 		@endif
 
+		@if ($errors->any())
+		<div class="alert alert-danger">
+   			@foreach ($errors->all() as $error)
+	           	<strong>{{ $error }}</strong>
+	           @endforeach
+  		</div>
+		@endif
+
 		<form class="form-signin" action="{{ url(action('RegistrationController@postLogin')) }}" method="post">
  		
 			{{ csrf_field() }}
@@ -27,12 +35,12 @@
 
 			<input type="email" id="emailAddr" name="email" class="form-control mb-1" placeholder="Email address" value ="{{ old('email') }}" required autofocus>
 
-			<button class="btn btn-lg mt-3 btn-info btn-block" type="submit" id="formsubmit">login</button>
+			<button class="btn btn-lg mt-3 btn-info btn-block" type="submit" id="formsubmit">Login</button>
 			                 
 				       
 		</form> 
 
 	</div>
-	<button class="btn btn-lg mt-3 btn-info btn-block" onclick="location.href='{{ url('/') }}'">register</button>
+	<button class="btn btn-lg mt-3 btn-info btn-block" onclick="location.href='{{ url('/') }}'">Register</button>
 	
 @stop
