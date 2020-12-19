@@ -20,5 +20,10 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'RegistrationController@showFormRegister');
+Route::get('/login', 'RegistrationController@getLogin')->name('login');
 
 Route::post('postRegister', 'RegistrationController@postRegister'); 
+Route::post('postLogin', 'RegistrationController@postLogin'); 
+
+
+Route::post('user', 'ApiController@createuser')-> name('createuser');
